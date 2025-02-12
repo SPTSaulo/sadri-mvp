@@ -1,0 +1,7 @@
+{
+  "name": "sadri-mvp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
