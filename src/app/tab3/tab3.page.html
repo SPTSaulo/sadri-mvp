@@ -20,7 +20,7 @@
             size="small"
             fill="clear"
             color="medium"
-            id="open-modal"
+            id="open-modal1"
             expand="block"
           >
             <ion-icon name="pencil-outline" style="font-size: 20px"></ion-icon>
@@ -29,8 +29,6 @@
       </div>
     </ion-card-content>
   </ion-card>
-  }
-
   <ion-grid>
     <ion-row>
       @for (award of awards; track $index) {
@@ -55,8 +53,8 @@
   </ion-grid>
 
   <ion-modal
-    #modal
-    trigger="open-modal"
+    #modal1
+    trigger="open-modal1"
     [initialBreakpoint]="0.5"
     [breakpoints]="[0, 0.25, 0.5, 0.75]"
   >
@@ -101,7 +99,7 @@
             expand="full"
             class="text-xl px-8"
             shape="round"
-            (click)="updateUser(); modal.dismiss()"
+            (click)="updateUser(); modal1.dismiss()"
           >
             Aceptar
           </ion-button>
@@ -109,4 +107,5 @@
       </ion-content>
     </ng-template>
   </ion-modal>
+  }
 </ion-content>
