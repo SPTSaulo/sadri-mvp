@@ -58,7 +58,7 @@ export class Tab1Page {
           handler: () => this.filmService.delete(film.id),
         },
         {
-          text: 'Cancel',
+          text: 'Cancelar',
           role: 'cancel',
           data: {
             action: 'cancel',

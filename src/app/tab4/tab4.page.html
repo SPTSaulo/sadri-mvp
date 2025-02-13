@@ -1,0 +1,84 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Planes </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-content class="user-random">
+      <ion-button
+        shape="round"
+        id="open-modal"
+        expand="block"
+        (click)="getRandomPerson()"
+        >¿Quién decide?</ion-button
+      >
+    </ion-card-content>
+  </ion-card>
+
+  <ion-grid>
+    <ion-row>
+      @for (plan of plans; track $index) {
+      <ion-col size="6">
+        <ion-card>
+          <ion-card-content>
+            <div class="card-content">
+              <ion-text>{{ plan.name }}</ion-text>
+              <div style="display: flex; align-items: center; gap: 5px">
+                <ion-icon name="people-outline"></ion-icon>
+              </div>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      }
+    </ion-row>
+  </ion-grid>
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button>
+      <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button (click)="getRandomPlan()">
+        <ion-icon name="shuffle-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+  <ion-modal
+    #modal
+    id="randomPlanModal"
+    [isOpen]="isRandomModalOpen"
+    (ionModalDidDismiss)="isRandomModalOpen = false"
+  >
+    <ng-template>
+      <div class="wrapper">
+        <ion-text><h1>El plan random es...</h1></ion-text>
+        <ion-text><h1>{{ randomPlan.name }}</h1></ion-text>
+        <ion-button
+          color="danger"
+          fill="outline"
+          (click)="isRandomModalOpen = false"
+        >
+          Cerrar
+          <ion-icon style="margin-left: 10px" name="close-outline"></ion-icon>
+        </ion-button>
+      </div>
+    </ng-template>
+  </ion-modal>
+
+  <ion-modal
+    trigger="open-modal"
+    #randomPersonModal
+    id="randomPersonModal"
+    style="padding: 20px"
+  >
+    <ng-template>
+      <div class="wrapper">
+        <ion-text><h1>Le toca a...</h1></ion-text>
+        <ion-text><h1>{{ randomPerson.name }}</h1></ion-text>
+        <ion-button (click)="randomPersonModal.dismiss()">Aceptar</ion-button>
+      </div>
+    </ng-template>
+  </ion-modal>
+</ion-content>

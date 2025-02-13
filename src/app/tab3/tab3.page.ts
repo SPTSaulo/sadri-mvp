@@ -53,7 +53,7 @@ export class Tab3Page {
           handler: () => this.awardService.delete(award.id),
         },
         {
-          text: 'Cancel',
+          text: 'Cancelar',
           role: 'cancel',
           data: {
             action: 'cancel',

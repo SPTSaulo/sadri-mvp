@@ -58,7 +58,7 @@ export class Tab2Page {
           handler: () => this.serieService.delete(serie.id),
         },
         {
-          text: 'Cancel',
+          text: 'Cancelar',
           role: 'cancel',
           data: {
             action: 'cancel',
