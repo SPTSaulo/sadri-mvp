@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-tabs',
@@ -7,7 +8,24 @@ import { Component } from '@angular/core';
   standalone: false,
 })
 export class TabsPage {
+  private readonly userService = inject(UserService);
+  public users!: any[];
+  public currentUser!: any;
+  public preventUser!: any;
 
-  constructor() {}
+  constructor() {
+    this.userService.getAll().subscribe((data) => (this.users = data));
+    this.currentUser = this.userService.currentUser.getValue();
+  }
 
+  updateCurrentUser() {
+    this.currentUser = this.preventUser;
+    this.userService.currentUser.next(this.currentUser);
+  }
+
+  changeUserSelection(event: any) {
+    this.preventUser = this.users.find(
+      (user) => user.id === event.detail.value
+    );
+  }
 }

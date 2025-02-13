@@ -1,0 +1,40 @@
+ion-card {
+  text-align: center;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+}
+
+ion-img {
+  width: 90px;
+  object-fit: cover;
+}
+
+ion-card-content {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+ion-modal#randomSerieModal {
+  --width: fit-content;
+  --min-width: 250px;
+  --height: fit-content;
+  --border-radius: 6px;
+  --box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
+}
+
+ion-modal#randomSerieModal .wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.disabled-card {
+  opacity: 0.5;
+  filter: grayscale(100%);
+}
