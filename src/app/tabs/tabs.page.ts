@@ -14,7 +14,10 @@ export class TabsPage {
   public preventUser!: any;
 
   constructor() {
-    this.userService.getAll().subscribe((data) => (this.users = data));
+    this.userService.getAll().subscribe((data) => {
+      this.users = data;
+      this.preventUser = this.users[0];
+    });
     this.currentUser = this.userService.currentUser.getValue();
   }
 

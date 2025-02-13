@@ -24,7 +24,10 @@
 </ion-tabs>
 } @else if(users) {
 <ion-picker>
-  <ion-picker-column (ionChange)="changeUserSelection($event)">
+  <ion-picker-column
+    (ionChange)="changeUserSelection($event)"
+    [value]="users[0].id"
+  >
     @for (user of users; track $index) {
     <ion-picker-column-option [value]="user.id"
       >{{user.name}}</ion-picker-column-option
