@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Auth, signInAnonymously } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,12 @@ import { Component } from '@angular/core';
   standalone: false,
 })
 export class AppComponent {
-  constructor() {}
+  public userLogged: boolean = false;
+  private authService = inject(Auth);
+
+  constructor() {
+    signInAnonymously(this.authService)
+      .then(() => (this.userLogged = true))
+      .catch(() => (this.userLogged = false));
+  }
 }
