@@ -29,20 +29,14 @@ export class StoryService {
     
     const storiesCollection = collection(this.firestore, 'stories');
     
-    // Temporarily remove orderBy to test connection
     return collectionData(storiesCollection, { idField: 'id' }).pipe(
       map((stories: any[]) => {
-        console.log('Firestore stories received:', stories);
-        // Sort in memory instead
         const mapped = stories.map(story => this.convertFirestoreToStory(story));
         return mapped.sort((a, b) => 
           new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
         );
       }),
-      tap(() => {
-        console.log('Sync complete');
-        this.syncStatusSubject.next(false);
-      }),
+      tap(() => this.syncStatusSubject.next(false)),
       catchError(error => {
         console.error('Firestore error:', error);
         this.syncStatusSubject.next(false);
