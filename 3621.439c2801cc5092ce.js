@@ -4111,65 +4111,67 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   StoryService: () => (/* binding */ StoryService)
 /* harmony export */ });
 /* harmony import */ var C_Users_Saulo_Documents_Proyectos_sadri_mvp_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 467);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ 4412);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ 7673);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ 8810);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 7705);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 7705);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ 4412);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs */ 8810);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! rxjs */ 9724);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ 6354);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ 8141);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs/operators */ 9437);
+/* harmony import */ var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/fire/firestore */ 3026);
+/* harmony import */ var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/fire/firestore */ 2784);
 
 var _StoryService;
 
 
+
+
+
 /**
- * StoryService handles CRUD operations for travel stories using local storage
+ * StoryService handles CRUD operations for travel stories using Firestore
  *
  * Validates: Requirements 2.4, 3.3, 3.5, 8.3, 10.2, 10.3, 11.4, 12.3
  */
 class StoryService {
   constructor() {
-    this.STORAGE_KEY = 'travel-stories';
+    this.firestore = (0,_angular_core__WEBPACK_IMPORTED_MODULE_1__.inject)(_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__.Firestore);
+    this.storiesCollection = (0,_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__.collection)(this.firestore, 'stories');
     // Sync status observable for synchronization indicator
-    this.syncStatusSubject = new rxjs__WEBPACK_IMPORTED_MODULE_1__.BehaviorSubject(false);
+    this.syncStatusSubject = new rxjs__WEBPACK_IMPORTED_MODULE_3__.BehaviorSubject(false);
     this.syncStatus$ = this.syncStatusSubject.asObservable();
   }
   /**
-   * Get all stories from local storage, sorted by creation date (newest first)
+   * Get all stories from Firestore, sorted by creation date (newest first)
    *
    * Validates: Requirements 2.1, 2.4, 8.3
    */
   getAll() {
     this.syncStatusSubject.next(true);
-    try {
-      const stories = this.getStoriesFromStorage();
-      const sortedStories = stories.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+    const q = (0,_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__.query)(this.storiesCollection, (0,_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__.orderBy)('createdAt', 'desc'));
+    return (0,_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__.collectionData)(q, {
+      idField: 'id'
+    }).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_4__.map)(stories => stories.map(story => this.convertFirestoreToStory(story))), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_5__.tap)(() => this.syncStatusSubject.next(false)), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.catchError)(error => {
       this.syncStatusSubject.next(false);
-      return (0,rxjs__WEBPACK_IMPORTED_MODULE_2__.of)(sortedStories);
-    } catch (error) {
-      this.syncStatusSubject.next(false);
-      return (0,rxjs__WEBPACK_IMPORTED_MODULE_3__.throwError)(() => error);
-    }
+      return (0,rxjs__WEBPACK_IMPORTED_MODULE_7__.throwError)(() => error);
+    }));
   }
   /**
-   * Get a single story by ID from local storage
+   * Get a single story by ID from Firestore
    *
    * Validates: Requirements 2.4, 8.3
    */
   get(id) {
     this.syncStatusSubject.next(true);
-    try {
-      const stories = this.getStoriesFromStorage();
-      const story = stories.find(s => s.id === id);
+    const storyDoc = (0,_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__.doc)(this.firestore, `stories/${id}`);
+    return (0,_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__.docData)(storyDoc, {
+      idField: 'id'
+    }).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_4__.map)(story => this.convertFirestoreToStory(story)), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_5__.tap)(() => this.syncStatusSubject.next(false)), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.catchError)(error => {
       this.syncStatusSubject.next(false);
-      if (!story) {
-        return (0,rxjs__WEBPACK_IMPORTED_MODULE_3__.throwError)(() => new Error(`Story with ID ${id} not found`));
-      }
-      return (0,rxjs__WEBPACK_IMPORTED_MODULE_2__.of)(story);
-    } catch (error) {
-      this.syncStatusSubject.next(false);
-      return (0,rxjs__WEBPACK_IMPORTED_MODULE_3__.throwError)(() => error);
-    }
+      return (0,rxjs__WEBPACK_IMPORTED_MODULE_7__.throwError)(() => error);
+    }));
   }
   /**
-   * Create a new story in local storage
+   * Create a new story in Firestore
    *
    * Validates: Requirements 3.3, 3.5, 8.3
    */
@@ -4177,21 +4179,17 @@ class StoryService {
     var _this = this;
     return (0,C_Users_Saulo_Documents_Proyectos_sadri_mvp_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       try {
-        const stories = _this.getStoriesFromStorage();
-        const newId = _this.generateId();
         const newStory = {
-          id: newId,
           title: story.title || '',
           coverUrl: story.coverUrl || '',
           coverStorageType: story.coverStorageType || 'cloudinary',
           photoCount: story.photoCount || 0,
-          createdAt: new Date(),
-          updatedAt: new Date(),
+          createdAt: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_8__.Timestamp.now(),
+          updatedAt: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_8__.Timestamp.now(),
           photos: story.photos || []
         };
-        stories.push(newStory);
-        _this.saveStoriesToStorage(stories);
-        return newId;
+        const docRef = yield (0,_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__.addDoc)(_this.storiesCollection, newStory);
+        return docRef.id;
       } catch (error) {
         console.error('Error creating story:', error);
         throw error;
@@ -4199,7 +4197,7 @@ class StoryService {
     })();
   }
   /**
-   * Update an existing story in local storage
+   * Update an existing story in Firestore
    *
    * Validates: Requirements 11.2, 11.3, 11.5, 12.3
    */
@@ -4207,17 +4205,16 @@ class StoryService {
     var _this2 = this;
     return (0,C_Users_Saulo_Documents_Proyectos_sadri_mvp_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       try {
-        const stories = _this2.getStoriesFromStorage();
-        const index = stories.findIndex(s => s.id === story.id);
-        if (index === -1) {
-          throw new Error(`Story with ID ${story.id} not found`);
-        }
-        const updatedStory = {
-          ...story,
-          updatedAt: new Date()
+        const storyDoc = (0,_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__.doc)(_this2.firestore, `stories/${story.id}`);
+        const updateData = {
+          title: story.title,
+          coverUrl: story.coverUrl,
+          coverStorageType: story.coverStorageType,
+          photoCount: story.photoCount,
+          photos: story.photos,
+          updatedAt: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_8__.Timestamp.now()
         };
-        stories[index] = updatedStory;
-        _this2.saveStoriesToStorage(stories);
+        yield (0,_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__.updateDoc)(storyDoc, updateData);
       } catch (error) {
         console.error('Error updating story:', error);
         throw error;
@@ -4225,7 +4222,7 @@ class StoryService {
     })();
   }
   /**
-   * Delete a story from local storage
+   * Delete a story from Firestore
    * Note: Photo cleanup from storage should be handled by StorageService
    *
    * Validates: Requirements 15.3
@@ -4234,12 +4231,8 @@ class StoryService {
     var _this3 = this;
     return (0,C_Users_Saulo_Documents_Proyectos_sadri_mvp_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       try {
-        const stories = _this3.getStoriesFromStorage();
-        const filteredStories = stories.filter(s => s.id !== id);
-        if (filteredStories.length === stories.length) {
-          throw new Error(`Story with ID ${id} not found`);
-        }
-        _this3.saveStoriesToStorage(filteredStories);
+        const storyDoc = (0,_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__.doc)(_this3.firestore, `stories/${id}`);
+        yield (0,_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__.deleteDoc)(storyDoc);
       } catch (error) {
         console.error('Error deleting story:', error);
         throw error;
@@ -4247,7 +4240,7 @@ class StoryService {
     })();
   }
   /**
-   * Reorder photos within a story in local storage
+   * Reorder photos within a story in Firestore
    *
    * Validates: Requirements 12.1, 12.2, 12.3, 12.4
    */
@@ -4255,11 +4248,12 @@ class StoryService {
     var _this4 = this;
     return (0,C_Users_Saulo_Documents_Proyectos_sadri_mvp_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       try {
-        const stories = _this4.getStoriesFromStorage();
-        const story = stories.find(s => s.id === storyId);
-        if (!story) {
-          throw new Error(`Story with ID ${storyId} not found`);
-        }
+        const storyDoc = (0,_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__.doc)(_this4.firestore, `stories/${storyId}`);
+        // Get current story
+        const storySnapshot = yield (0,rxjs__WEBPACK_IMPORTED_MODULE_9__.from)((0,_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__.docData)(storyDoc, {
+          idField: 'id'
+        })).toPromise();
+        const story = _this4.convertFirestoreToStory(storySnapshot);
         // Reorder photos based on the provided photoIds array
         const reorderedPhotos = photoIds.map((photoId, index) => {
           const photo = story.photos.find(p => p.id === photoId);
@@ -4272,9 +4266,10 @@ class StoryService {
           };
         });
         // Update the story with reordered photos
-        story.photos = reorderedPhotos;
-        story.updatedAt = new Date();
-        _this4.saveStoriesToStorage(stories);
+        yield (0,_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__.updateDoc)(storyDoc, {
+          photos: reorderedPhotos,
+          updatedAt: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_8__.Timestamp.now()
+        });
       } catch (error) {
         console.error('Error reordering photos:', error);
         throw error;
@@ -4282,51 +4277,33 @@ class StoryService {
     })();
   }
   /**
-   * Get stories from localStorage
+   * Convert Firestore document to Story object
    */
-  getStoriesFromStorage() {
-    try {
-      const stored = localStorage.getItem(this.STORAGE_KEY);
-      if (!stored) return [];
-      const stories = JSON.parse(stored);
-      // Convert date strings back to Date objects
-      return stories.map(story => ({
-        ...story,
-        createdAt: new Date(story.createdAt),
-        updatedAt: new Date(story.updatedAt),
-        photos: story.photos.map(photo => ({
+  convertFirestoreToStory(data) {
+    var _data$createdAt, _data$updatedAt;
+    return {
+      id: data.id,
+      title: data.title,
+      coverUrl: data.coverUrl,
+      coverStorageType: data.coverStorageType,
+      photoCount: data.photoCount,
+      createdAt: ((_data$createdAt = data.createdAt) === null || _data$createdAt === void 0 ? void 0 : _data$createdAt.toDate()) || new Date(),
+      updatedAt: ((_data$updatedAt = data.updatedAt) === null || _data$updatedAt === void 0 ? void 0 : _data$updatedAt.toDate()) || new Date(),
+      photos: (data.photos || []).map(photo => {
+        var _photo$uploadedAt;
+        return {
           ...photo,
-          uploadedAt: new Date(photo.uploadedAt)
-        }))
-      }));
-    } catch (error) {
-      console.error('Error reading stories from storage:', error);
-      return [];
-    }
-  }
-  /**
-   * Save stories to localStorage
-   */
-  saveStoriesToStorage(stories) {
-    try {
-      localStorage.setItem(this.STORAGE_KEY, JSON.stringify(stories));
-    } catch (error) {
-      console.error('Error saving stories to storage:', error);
-      throw error;
-    }
-  }
-  /**
-   * Generate a unique ID for new stories
-   */
-  generateId() {
-    return Date.now().toString(36) + Math.random().toString(36).substr(2);
+          uploadedAt: (_photo$uploadedAt = photo.uploadedAt) !== null && _photo$uploadedAt !== void 0 && _photo$uploadedAt.toDate ? photo.uploadedAt.toDate() : new Date(photo.uploadedAt)
+        };
+      })
+    };
   }
 }
 _StoryService = StoryService;
 _StoryService.ɵfac = function StoryService_Factory(__ngFactoryType__) {
   return new (__ngFactoryType__ || _StoryService)();
 };
-_StoryService.ɵprov = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineInjectable"]({
+_StoryService.ɵprov = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({
   token: _StoryService,
   factory: _StoryService.ɵfac,
   providedIn: 'root'
