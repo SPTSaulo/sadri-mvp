@@ -4135,7 +4135,6 @@ var _StoryService;
 class StoryService {
   constructor() {
     this.firestore = (0,_angular_core__WEBPACK_IMPORTED_MODULE_1__.inject)(_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__.Firestore);
-    this.storiesCollection = (0,_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__.collection)(this.firestore, 'stories');
     // Sync status observable for synchronization indicator
     this.syncStatusSubject = new rxjs__WEBPACK_IMPORTED_MODULE_3__.BehaviorSubject(false);
     this.syncStatus$ = this.syncStatusSubject.asObservable();
@@ -4147,8 +4146,9 @@ class StoryService {
    */
   getAll() {
     this.syncStatusSubject.next(true);
+    const storiesCollection = (0,_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__.collection)(this.firestore, 'stories');
     // Temporarily remove orderBy to test connection
-    return (0,_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__.collectionData)(this.storiesCollection, {
+    return (0,_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__.collectionData)(storiesCollection, {
       idField: 'id'
     }).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_4__.map)(stories => {
       console.log('Firestore stories received:', stories);
@@ -4188,6 +4188,7 @@ class StoryService {
     var _this = this;
     return (0,C_Users_Saulo_Documents_Proyectos_sadri_mvp_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       try {
+        const storiesCollection = (0,_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__.collection)(_this.firestore, 'stories');
         const newStory = {
           title: story.title || '',
           coverUrl: story.coverUrl || '',
@@ -4197,7 +4198,7 @@ class StoryService {
           updatedAt: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_8__.Timestamp.now(),
           photos: story.photos || []
         };
-        const docRef = yield (0,_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__.addDoc)(_this.storiesCollection, newStory);
+        const docRef = yield (0,_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__.addDoc)(storiesCollection, newStory);
         return docRef.id;
       } catch (error) {
         console.error('Error creating story:', error);
