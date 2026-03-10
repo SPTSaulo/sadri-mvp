@@ -2599,10 +2599,10 @@ var _StoryViewerComponent;
 
 
 const _c0 = ["photoUploaderContainer"];
-function StoryViewerComponent_div_9_div_1_Template(rf, ctx) {
+function StoryViewerComponent_div_5_div_1_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "div", 15);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelement"](1, "div", 16);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "div", 12);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelement"](1, "div", 13);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
@@ -2613,10 +2613,10 @@ function StoryViewerComponent_div_9_div_1_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵstyleProp"]("width", i_r1 === ctx_r1.currentPhotoIndex ? ctx_r1.progressPercentage : i_r1 < ctx_r1.currentPhotoIndex ? 100 : 0, "%");
   }
 }
-function StoryViewerComponent_div_9_Template(rf, ctx) {
+function StoryViewerComponent_div_5_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "div", 13);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](1, StoryViewerComponent_div_9_div_1_Template, 2, 6, "div", 14);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "div", 10);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](1, StoryViewerComponent_div_5_div_1_Template, 2, 6, "div", 11);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
@@ -2625,9 +2625,9 @@ function StoryViewerComponent_div_9_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("ngForOf", ctx_r1.photos);
   }
 }
-function StoryViewerComponent_div_10_Template(rf, ctx) {
+function StoryViewerComponent_div_6_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "div", 17);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "div", 14);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
   }
@@ -2637,22 +2637,22 @@ function StoryViewerComponent_div_10_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtextInterpolate1"](" ", ctx_r1.getPhotoCounter(), " ");
   }
 }
-function StoryViewerComponent_div_11_div_1_Template(rf, ctx) {
+function StoryViewerComponent_div_7_div_1_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "div", 21);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelement"](1, "ion-icon", 22);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "div", 18);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelement"](1, "ion-icon", 19);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](2, "p");
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](3, "No hay historias para este viaje todav\u00EDa");
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](4, "p", 23);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](5, "Toca el bot\u00F3n \"A\u00F1adir\" para agregar fotos");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](4, "p", 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](5, "Toca el bot\u00F3n de men\u00FA para agregar fotos");
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]()();
   }
 }
-function StoryViewerComponent_div_11_div_2_Template(rf, ctx) {
+function StoryViewerComponent_div_7_div_2_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "div", 24);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelement"](1, "ion-img", 25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "div", 21);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelement"](1, "ion-img", 22);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
@@ -2662,16 +2662,16 @@ function StoryViewerComponent_div_11_div_2_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("src", (tmp_2_0 = ctx_r1.getCurrentPhoto()) == null ? null : tmp_2_0.url);
   }
 }
-function StoryViewerComponent_div_11_Template(rf, ctx) {
+function StoryViewerComponent_div_7_Template(rf, ctx) {
   if (rf & 1) {
     const _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "div", 18);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵlistener"]("click", function StoryViewerComponent_div_11_Template_div_click_0_listener($event) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "div", 15);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵlistener"]("click", function StoryViewerComponent_div_7_Template_div_click_0_listener($event) {
       _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵrestoreView"](_r3);
       const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"]();
       return _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵresetView"](ctx_r1.handleTap($event));
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](1, StoryViewerComponent_div_11_div_1_Template, 6, 0, "div", 19)(2, StoryViewerComponent_div_11_div_2_Template, 2, 1, "div", 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](1, StoryViewerComponent_div_7_div_1_Template, 6, 0, "div", 16)(2, StoryViewerComponent_div_7_div_2_Template, 2, 1, "div", 17);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
@@ -2682,58 +2682,43 @@ function StoryViewerComponent_div_11_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("ngIf", ctx_r1.getCurrentPhoto());
   }
 }
-function StoryViewerComponent_ion_button_12_Template(rf, ctx) {
+function StoryViewerComponent_div_8_ion_item_7_Template(rf, ctx) {
   if (rf & 1) {
-    const _r4 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "ion-button", 26);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵlistener"]("click", function StoryViewerComponent_ion_button_12_Template_ion_button_click_0_listener($event) {
-      _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵrestoreView"](_r4);
-      const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"]();
-      ctx_r1.deletePhoto(ctx_r1.getCurrentPhoto().id);
-      return _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵresetView"]($event.stopPropagation());
-    });
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelement"](1, "ion-icon", 27);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](2, " Eliminar ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
-  }
-}
-function StoryViewerComponent_div_13_ion_item_7_Template(rf, ctx) {
-  if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "ion-item", 32)(1, "ion-thumbnail", 33);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelement"](2, "img", 34);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "ion-item", 27)(1, "ion-thumbnail", 28);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelement"](2, "img", 29);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](3, "ion-label")(4, "h3");
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](5);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](6, "ion-reorder", 35);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelement"](7, "ion-icon", 36);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](6, "ion-reorder", 30);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelement"](7, "ion-icon", 31);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]()();
   }
   if (rf & 2) {
-    const photo_r6 = ctx.$implicit;
-    const i_r7 = ctx.index;
+    const photo_r5 = ctx.$implicit;
+    const i_r6 = ctx.index;
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("src", photo_r6.url, _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵsanitizeUrl"]);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("src", photo_r5.url, _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵsanitizeUrl"]);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtextInterpolate1"]("Photo ", i_r7 + 1, "");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtextInterpolate1"]("Photo ", i_r6 + 1, "");
   }
 }
-function StoryViewerComponent_div_13_Template(rf, ctx) {
+function StoryViewerComponent_div_8_Template(rf, ctx) {
   if (rf & 1) {
-    const _r5 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "div", 28)(1, "div", 29)(2, "h3");
+    const _r4 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "div", 23)(1, "div", 24)(2, "h3");
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](3, "Reorder Photos");
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](4, "p");
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](5, "Drag photos to change their order");
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](6, "ion-reorder-group", 30);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵlistener"]("ionItemReorder", function StoryViewerComponent_div_13_Template_ion_reorder_group_ionItemReorder_6_listener($event) {
-      _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵrestoreView"](_r5);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](6, "ion-reorder-group", 25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵlistener"]("ionItemReorder", function StoryViewerComponent_div_8_Template_ion_reorder_group_ionItemReorder_6_listener($event) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵrestoreView"](_r4);
       const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"]();
       return _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵresetView"](ctx_r1.reorderPhotos($event));
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](7, StoryViewerComponent_div_13_ion_item_7_Template, 8, 2, "ion-item", 31);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](7, StoryViewerComponent_div_8_ion_item_7_Template, 8, 2, "ion-item", 26);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]()();
   }
   if (rf & 2) {
@@ -2744,20 +2729,21 @@ function StoryViewerComponent_div_13_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("ngForOf", ctx_r1.photos);
   }
 }
-function StoryViewerComponent_div_14_Template(rf, ctx) {
+function StoryViewerComponent_div_9_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "div", 37);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelement"](1, "ion-spinner", 38);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "div", 32);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelement"](1, "ion-spinner", 33);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
   }
 }
 class StoryViewerComponent {
-  constructor(storyService, storageService, errorToastService, modalController, alertController) {
+  constructor(storyService, storageService, errorToastService, modalController, alertController, actionSheetController) {
     this.storyService = storyService;
     this.storageService = storageService;
     this.errorToastService = errorToastService;
     this.modalController = modalController;
     this.alertController = alertController;
+    this.actionSheetController = actionSheetController;
     this.story = null;
     this.photos = [];
     this.currentPhotoIndex = 0;
@@ -3139,10 +3125,48 @@ class StoryViewerComponent {
       }
     })();
   }
+  /**
+   * Show action sheet menu with options
+   */
+  showMenu() {
+    var _this5 = this;
+    return (0,C_Users_Saulo_Documents_Proyectos_sadri_mvp_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+      const actionSheet = yield _this5.actionSheetController.create({
+        header: 'Opciones',
+        buttons: [{
+          text: _this5.isEditMode ? 'Guardar orden' : 'Reordenar fotos',
+          icon: _this5.isEditMode ? 'checkmark' : 'swap-vertical',
+          handler: () => {
+            _this5.toggleEditMode();
+          }
+        }, {
+          text: 'Añadir fotos',
+          icon: 'add-circle',
+          handler: () => {
+            _this5.openPhotoUploader();
+          }
+        }, {
+          text: 'Eliminar foto actual',
+          icon: 'trash',
+          role: 'destructive',
+          handler: () => {
+            if (_this5.getCurrentPhoto()) {
+              _this5.deletePhoto(_this5.getCurrentPhoto().id);
+            }
+          }
+        }, {
+          text: 'Cancelar',
+          icon: 'close',
+          role: 'cancel'
+        }]
+      });
+      yield actionSheet.present();
+    })();
+  }
 }
 _StoryViewerComponent = StoryViewerComponent;
 _StoryViewerComponent.ɵfac = function StoryViewerComponent_Factory(__ngFactoryType__) {
-  return new (__ngFactoryType__ || _StoryViewerComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdirectiveInject"](_services_story_service__WEBPACK_IMPORTED_MODULE_3__.StoryService), _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdirectiveInject"](_services_storage_service__WEBPACK_IMPORTED_MODULE_4__.StorageService), _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdirectiveInject"](_services_error_toast_service__WEBPACK_IMPORTED_MODULE_5__.ErrorToastService), _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdirectiveInject"](_ionic_angular__WEBPACK_IMPORTED_MODULE_8__.ModalController), _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdirectiveInject"](_ionic_angular__WEBPACK_IMPORTED_MODULE_8__.AlertController));
+  return new (__ngFactoryType__ || _StoryViewerComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdirectiveInject"](_services_story_service__WEBPACK_IMPORTED_MODULE_3__.StoryService), _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdirectiveInject"](_services_storage_service__WEBPACK_IMPORTED_MODULE_4__.StorageService), _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdirectiveInject"](_services_error_toast_service__WEBPACK_IMPORTED_MODULE_5__.ErrorToastService), _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdirectiveInject"](_ionic_angular__WEBPACK_IMPORTED_MODULE_8__.ModalController), _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdirectiveInject"](_ionic_angular__WEBPACK_IMPORTED_MODULE_8__.AlertController), _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdirectiveInject"](_ionic_angular__WEBPACK_IMPORTED_MODULE_8__.ActionSheetController));
 };
 _StoryViewerComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdefineComponent"]({
   type: _StoryViewerComponent,
@@ -3160,9 +3184,9 @@ _StoryViewerComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODUL
     storyId: "storyId"
   },
   standalone: false,
-  decls: 15,
-  vars: 10,
-  consts: [[1, "story-viewer"], ["fill", "clear", 1, "close-button", 3, "click"], ["name", "close", "slot", "icon-only"], ["fill", "solid", 1, "edit-button", 3, "click"], ["slot", "start", 3, "name"], ["fill", "solid", 1, "add-photos-button", 3, "click"], ["name", "add-circle", "slot", "start"], ["class", "progress-indicators", 4, "ngIf"], ["class", "photo-counter", 4, "ngIf"], [3, "click", 4, "ngIf"], ["class", "delete-photo-button", "fill", "solid", "color", "danger", 3, "click", 4, "ngIf"], ["class", "edit-mode-container", 4, "ngIf"], ["class", "loading-container", 4, "ngIf"], [1, "progress-indicators"], ["class", "progress-indicator", 3, "active", "completed", 4, "ngFor", "ngForOf"], [1, "progress-indicator"], [1, "progress-bar"], [1, "photo-counter"], [3, "click"], ["class", "empty-state", 4, "ngIf"], ["class", "photo-container", 4, "ngIf"], [1, "empty-state"], ["name", "images-outline", 1, "empty-state-icon"], [1, "empty-state-hint"], [1, "photo-container"], ["loading", "lazy", 1, "fullscreen-photo", 3, "src"], ["fill", "solid", "color", "danger", 1, "delete-photo-button", 3, "click"], ["name", "trash", "slot", "start"], [1, "edit-mode-container"], [1, "edit-mode-header"], [3, "ionItemReorder", "disabled"], ["class", "photo-reorder-item", 4, "ngFor", "ngForOf"], [1, "photo-reorder-item"], ["slot", "start"], [3, "src"], ["slot", "end"], ["name", "reorder-three"], [1, "loading-container"], ["name", "crescent"]],
+  decls: 10,
+  vars: 7,
+  consts: [[1, "story-viewer"], ["fill", "clear", 1, "close-button", 3, "click"], ["name", "close", "slot", "icon-only"], ["fill", "clear", 1, "menu-button", 3, "click"], ["name", "ellipsis-vertical", "slot", "icon-only"], ["class", "progress-indicators", 4, "ngIf"], ["class", "photo-counter", 4, "ngIf"], [3, "click", 4, "ngIf"], ["class", "edit-mode-container", 4, "ngIf"], ["class", "loading-container", 4, "ngIf"], [1, "progress-indicators"], ["class", "progress-indicator", 3, "active", "completed", 4, "ngFor", "ngForOf"], [1, "progress-indicator"], [1, "progress-bar"], [1, "photo-counter"], [3, "click"], ["class", "empty-state", 4, "ngIf"], ["class", "photo-container", 4, "ngIf"], [1, "empty-state"], ["name", "images-outline", 1, "empty-state-icon"], [1, "empty-state-hint"], [1, "photo-container"], ["loading", "lazy", 1, "fullscreen-photo", 3, "src"], [1, "edit-mode-container"], [1, "edit-mode-header"], [3, "ionItemReorder", "disabled"], ["class", "photo-reorder-item", 4, "ngFor", "ngForOf"], [1, "photo-reorder-item"], ["slot", "start"], [3, "src"], ["slot", "end"], ["name", "reorder-three"], [1, "loading-container"], ["name", "crescent"]],
   template: function StoryViewerComponent_Template(rf, ctx) {
     if (rf & 1) {
       _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "div", 0)(1, "ion-button", 1);
@@ -3174,37 +3198,22 @@ _StoryViewerComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODUL
       _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
       _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](3, "ion-button", 3);
       _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵlistener"]("click", function StoryViewerComponent_Template_ion_button_click_3_listener($event) {
-        ctx.toggleEditMode();
+        ctx.showMenu();
         return $event.stopPropagation();
       });
       _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelement"](4, "ion-icon", 4);
-      _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](5);
       _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](6, "ion-button", 5);
-      _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵlistener"]("click", function StoryViewerComponent_Template_ion_button_click_6_listener($event) {
-        ctx.openPhotoUploader();
-        return $event.stopPropagation();
-      });
-      _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelement"](7, "ion-icon", 6);
-      _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](8, " A\u00F1adir ");
-      _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](9, StoryViewerComponent_div_9_Template, 2, 1, "div", 7)(10, StoryViewerComponent_div_10_Template, 2, 1, "div", 8)(11, StoryViewerComponent_div_11_Template, 3, 2, "div", 9)(12, StoryViewerComponent_ion_button_12_Template, 3, 0, "ion-button", 10)(13, StoryViewerComponent_div_13_Template, 8, 2, "div", 11)(14, StoryViewerComponent_div_14_Template, 2, 0, "div", 12);
+      _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](5, StoryViewerComponent_div_5_Template, 2, 1, "div", 5)(6, StoryViewerComponent_div_6_Template, 2, 1, "div", 6)(7, StoryViewerComponent_div_7_Template, 3, 2, "div", 7)(8, StoryViewerComponent_div_8_Template, 8, 2, "div", 8)(9, StoryViewerComponent_div_9_Template, 2, 0, "div", 9);
       _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
     }
     if (rf & 2) {
       _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵclassProp"]("edit-mode", ctx.isEditMode);
-      _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](4);
-      _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("name", ctx.isEditMode ? "checkmark" : "create");
-      _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtextInterpolate1"](" ", ctx.isEditMode ? "Guardar" : "Editar", " ");
-      _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](4);
+      _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](5);
       _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("ngIf", !ctx.isEditMode);
       _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"]();
       _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("ngIf", !ctx.isEditMode);
       _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"]();
       _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("ngIf", !ctx.isEditMode);
-      _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("ngIf", !ctx.isEditMode && ctx.getCurrentPhoto());
       _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"]();
       _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("ngIf", ctx.isEditMode);
       _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"]();
@@ -3212,7 +3221,7 @@ _StoryViewerComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODUL
     }
   },
   dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_9__.NgForOf, _angular_common__WEBPACK_IMPORTED_MODULE_9__.NgIf, _ionic_angular__WEBPACK_IMPORTED_MODULE_8__.IonButton, _ionic_angular__WEBPACK_IMPORTED_MODULE_8__.IonIcon, _ionic_angular__WEBPACK_IMPORTED_MODULE_8__.IonImg, _ionic_angular__WEBPACK_IMPORTED_MODULE_8__.IonItem, _ionic_angular__WEBPACK_IMPORTED_MODULE_8__.IonLabel, _ionic_angular__WEBPACK_IMPORTED_MODULE_8__.IonReorder, _ionic_angular__WEBPACK_IMPORTED_MODULE_8__.IonReorderGroup, _ionic_angular__WEBPACK_IMPORTED_MODULE_8__.IonSpinner, _ionic_angular__WEBPACK_IMPORTED_MODULE_8__.IonThumbnail],
-  styles: [".story-viewer[_ngcontent-%COMP%] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  background-color: var(--ion-background-color, #f5f5f5);\n  z-index: 9999;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n}\n\n.close-button[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 40px;\n  right: 20px;\n  z-index: 10001;\n  color: var(--ion-text-color, #000);\n  --background: rgba(128, 128, 128, 0.2);\n  --border-radius: 50%;\n  width: 44px;\n  height: 44px;\n  -webkit-backdrop-filter: blur(10px);\n          backdrop-filter: blur(10px);\n}\n.close-button[_ngcontent-%COMP%]   ion-icon[_ngcontent-%COMP%] {\n  font-size: 24px;\n}\n\n.progress-indicators[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 20px;\n  left: 20px;\n  right: 20px;\n  display: flex;\n  gap: 4px;\n  z-index: 10000;\n  padding: 0;\n}\n\n.progress-indicator[_ngcontent-%COMP%] {\n  flex: 1;\n  height: 4px;\n  background-color: rgba(128, 128, 128, 0.3);\n  border-radius: 2px;\n  overflow: hidden;\n  position: relative;\n}\n.progress-indicator.completed[_ngcontent-%COMP%] {\n  background-color: var(--ion-color-primary, #3880ff);\n}\n.progress-indicator.active[_ngcontent-%COMP%] {\n  background-color: rgba(128, 128, 128, 0.5);\n}\n.progress-indicator[_ngcontent-%COMP%]   .progress-bar[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 100%;\n  background-color: var(--ion-color-primary, #3880ff);\n  transition: width 0.1s linear;\n  border-radius: 2px;\n}\n\n.photo-counter[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 35px;\n  left: 50%;\n  transform: translateX(-50%);\n  z-index: 10000;\n  color: var(--ion-text-color, #000);\n  font-size: 12px;\n  font-weight: 500;\n  background-color: rgba(128, 128, 128, 0.2);\n  padding: 4px 10px;\n  border-radius: 10px;\n  -webkit-backdrop-filter: blur(10px);\n          backdrop-filter: blur(10px);\n}\n\n.photo-container[_ngcontent-%COMP%] {\n  width: 100%;\n  height: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n}\n\n.fullscreen-photo[_ngcontent-%COMP%] {\n  width: 100%;\n  height: 100%;\n  object-fit: contain;\n}\n\n.empty-state[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  height: 100%;\n  width: 100%;\n  color: var(--ion-color-medium);\n  padding: 20px;\n}\n.empty-state[_ngcontent-%COMP%]   .empty-state-icon[_ngcontent-%COMP%] {\n  font-size: 80px;\n  margin-bottom: 16px;\n  opacity: 0.5;\n}\n.empty-state[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  font-size: 1.1rem;\n  text-align: center;\n  margin: 8px 0;\n}\n.empty-state[_ngcontent-%COMP%]   .empty-state-hint[_ngcontent-%COMP%] {\n  font-size: 0.9rem;\n  opacity: 0.7;\n}\n\n.loading-container[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 100%;\n  height: 100%;\n}\n.loading-container[_ngcontent-%COMP%]   ion-spinner[_ngcontent-%COMP%] {\n  --color: var(--ion-color-primary, #3880ff);\n  width: 50px;\n  height: 50px;\n}\n\n.edit-button[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 100px;\n  left: 20px;\n  z-index: 10001;\n  color: var(--ion-text-color, #000);\n  --background: rgba(128, 128, 128, 0.2);\n  --border-radius: 20px;\n  width: auto;\n  height: 36px;\n  padding: 0 16px;\n  -webkit-backdrop-filter: blur(10px);\n          backdrop-filter: blur(10px);\n  font-size: 12px;\n  font-weight: 500;\n}\n.edit-button[_ngcontent-%COMP%]   ion-icon[_ngcontent-%COMP%] {\n  font-size: 16px;\n  margin-right: 6px;\n}\n\n.add-photos-button[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 100px;\n  left: 50%;\n  transform: translateX(-50%);\n  z-index: 10001;\n  color: var(--ion-text-color, #000);\n  --background: rgba(128, 128, 128, 0.2);\n  --border-radius: 20px;\n  width: auto;\n  height: 36px;\n  padding: 0 16px;\n  -webkit-backdrop-filter: blur(10px);\n          backdrop-filter: blur(10px);\n  font-size: 12px;\n  font-weight: 500;\n}\n.add-photos-button[_ngcontent-%COMP%]   ion-icon[_ngcontent-%COMP%] {\n  font-size: 16px;\n  margin-right: 6px;\n}\n\n.delete-photo-button[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 100px;\n  right: 20px;\n  z-index: 10001;\n  --background: rgba(220, 53, 69, 0.7);\n  --border-radius: 20px;\n  width: auto;\n  height: 36px;\n  padding: 0 16px;\n  -webkit-backdrop-filter: blur(10px);\n          backdrop-filter: blur(10px);\n  font-size: 12px;\n  font-weight: 500;\n}\n.delete-photo-button[_ngcontent-%COMP%]   ion-icon[_ngcontent-%COMP%] {\n  font-size: 16px;\n  margin-right: 6px;\n}\n.delete-photo-button[_ngcontent-%COMP%]:hover {\n  --background: rgba(220, 53, 69, 0.9);\n}\n\n.edit-mode-container[_ngcontent-%COMP%] {\n  width: 100%;\n  height: 100%;\n  overflow-y: auto;\n  padding: 20px;\n  padding-top: 80px;\n}\n.edit-mode-container[_ngcontent-%COMP%]   .edit-mode-header[_ngcontent-%COMP%] {\n  text-align: center;\n  color: var(--ion-text-color, #000);\n  margin-bottom: 20px;\n}\n.edit-mode-container[_ngcontent-%COMP%]   .edit-mode-header[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  font-size: 24px;\n  font-weight: 600;\n  margin: 0 0 8px 0;\n}\n.edit-mode-container[_ngcontent-%COMP%]   .edit-mode-header[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  font-size: 14px;\n  color: var(--ion-color-medium, #666);\n  margin: 0;\n}\n.edit-mode-container[_ngcontent-%COMP%]   ion-reorder-group[_ngcontent-%COMP%] {\n  background-color: transparent;\n}\n.edit-mode-container[_ngcontent-%COMP%]   .photo-reorder-item[_ngcontent-%COMP%] {\n  --background: var(--ion-item-background, #fff);\n  --border-color: var(--ion-border-color, #ddd);\n  margin-bottom: 10px;\n  border-radius: 8px;\n}\n.edit-mode-container[_ngcontent-%COMP%]   .photo-reorder-item[_ngcontent-%COMP%]   ion-thumbnail[_ngcontent-%COMP%] {\n  width: 80px;\n  height: 80px;\n  margin-right: 16px;\n}\n.edit-mode-container[_ngcontent-%COMP%]   .photo-reorder-item[_ngcontent-%COMP%]   ion-thumbnail[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  border-radius: 4px;\n  object-fit: cover;\n}\n.edit-mode-container[_ngcontent-%COMP%]   .photo-reorder-item[_ngcontent-%COMP%]   ion-label[_ngcontent-%COMP%] {\n  color: var(--ion-text-color, #000);\n}\n.edit-mode-container[_ngcontent-%COMP%]   .photo-reorder-item[_ngcontent-%COMP%]   ion-label[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  font-size: 16px;\n  font-weight: 500;\n}\n.edit-mode-container[_ngcontent-%COMP%]   .photo-reorder-item[_ngcontent-%COMP%]   ion-reorder[_ngcontent-%COMP%] {\n  color: var(--ion-text-color, #000);\n}\n.edit-mode-container[_ngcontent-%COMP%]   .photo-reorder-item[_ngcontent-%COMP%]   ion-reorder[_ngcontent-%COMP%]   ion-icon[_ngcontent-%COMP%] {\n  font-size: 24px;\n}\n\n.story-viewer.edit-mode[_ngcontent-%COMP%]   .photo-container[_ngcontent-%COMP%] {\n  display: none;\n}"]
+  styles: [".story-viewer[_ngcontent-%COMP%] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  background-color: var(--ion-background-color, #f5f5f5);\n  z-index: 9999;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n}\n\n.close-button[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 40px;\n  right: 20px;\n  z-index: 10001;\n  color: var(--ion-text-color, #000);\n  --background: rgba(128, 128, 128, 0.2);\n  --border-radius: 50%;\n  width: 44px;\n  height: 44px;\n  -webkit-backdrop-filter: blur(10px);\n          backdrop-filter: blur(10px);\n}\n.close-button[_ngcontent-%COMP%]   ion-icon[_ngcontent-%COMP%] {\n  font-size: 24px;\n}\n\n.menu-button[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 40px;\n  left: 20px;\n  z-index: 10001;\n  color: var(--ion-text-color, #000);\n  --background: rgba(128, 128, 128, 0.2);\n  --border-radius: 50%;\n  width: 44px;\n  height: 44px;\n  -webkit-backdrop-filter: blur(10px);\n          backdrop-filter: blur(10px);\n}\n.menu-button[_ngcontent-%COMP%]   ion-icon[_ngcontent-%COMP%] {\n  font-size: 24px;\n}\n\n.progress-indicators[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 20px;\n  left: 20px;\n  right: 20px;\n  display: flex;\n  gap: 4px;\n  z-index: 10000;\n  padding: 0;\n}\n\n.progress-indicator[_ngcontent-%COMP%] {\n  flex: 1;\n  height: 4px;\n  background-color: rgba(128, 128, 128, 0.3);\n  border-radius: 2px;\n  overflow: hidden;\n  position: relative;\n}\n.progress-indicator.completed[_ngcontent-%COMP%] {\n  background-color: var(--ion-color-primary, #3880ff);\n}\n.progress-indicator.active[_ngcontent-%COMP%] {\n  background-color: rgba(128, 128, 128, 0.5);\n}\n.progress-indicator[_ngcontent-%COMP%]   .progress-bar[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 100%;\n  background-color: var(--ion-color-primary, #3880ff);\n  transition: width 0.1s linear;\n  border-radius: 2px;\n}\n\n.photo-counter[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 35px;\n  left: 50%;\n  transform: translateX(-50%);\n  z-index: 10000;\n  color: var(--ion-text-color, #000);\n  font-size: 12px;\n  font-weight: 500;\n  background-color: rgba(128, 128, 128, 0.2);\n  padding: 4px 10px;\n  border-radius: 10px;\n  -webkit-backdrop-filter: blur(10px);\n          backdrop-filter: blur(10px);\n}\n\n.photo-container[_ngcontent-%COMP%] {\n  width: 100%;\n  height: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n}\n\n.fullscreen-photo[_ngcontent-%COMP%] {\n  width: 100%;\n  height: 100%;\n  object-fit: contain;\n}\n\n.empty-state[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  height: 100%;\n  width: 100%;\n  color: var(--ion-color-medium);\n  padding: 20px;\n}\n.empty-state[_ngcontent-%COMP%]   .empty-state-icon[_ngcontent-%COMP%] {\n  font-size: 80px;\n  margin-bottom: 16px;\n  opacity: 0.5;\n}\n.empty-state[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  font-size: 1.1rem;\n  text-align: center;\n  margin: 8px 0;\n}\n.empty-state[_ngcontent-%COMP%]   .empty-state-hint[_ngcontent-%COMP%] {\n  font-size: 0.9rem;\n  opacity: 0.7;\n}\n\n.loading-container[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 100%;\n  height: 100%;\n}\n.loading-container[_ngcontent-%COMP%]   ion-spinner[_ngcontent-%COMP%] {\n  --color: var(--ion-color-primary, #3880ff);\n  width: 50px;\n  height: 50px;\n}\n\n.edit-mode-container[_ngcontent-%COMP%] {\n  width: 100%;\n  height: 100%;\n  overflow-y: auto;\n  padding: 20px;\n  padding-top: 80px;\n}\n.edit-mode-container[_ngcontent-%COMP%]   .edit-mode-header[_ngcontent-%COMP%] {\n  text-align: center;\n  color: var(--ion-text-color, #000);\n  margin-bottom: 20px;\n}\n.edit-mode-container[_ngcontent-%COMP%]   .edit-mode-header[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  font-size: 24px;\n  font-weight: 600;\n  margin: 0 0 8px 0;\n}\n.edit-mode-container[_ngcontent-%COMP%]   .edit-mode-header[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  font-size: 14px;\n  color: var(--ion-color-medium, #666);\n  margin: 0;\n}\n.edit-mode-container[_ngcontent-%COMP%]   ion-reorder-group[_ngcontent-%COMP%] {\n  background-color: transparent;\n}\n.edit-mode-container[_ngcontent-%COMP%]   .photo-reorder-item[_ngcontent-%COMP%] {\n  --background: var(--ion-item-background, #fff);\n  --border-color: var(--ion-border-color, #ddd);\n  margin-bottom: 10px;\n  border-radius: 8px;\n}\n.edit-mode-container[_ngcontent-%COMP%]   .photo-reorder-item[_ngcontent-%COMP%]   ion-thumbnail[_ngcontent-%COMP%] {\n  width: 80px;\n  height: 80px;\n  margin-right: 16px;\n}\n.edit-mode-container[_ngcontent-%COMP%]   .photo-reorder-item[_ngcontent-%COMP%]   ion-thumbnail[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  border-radius: 4px;\n  object-fit: cover;\n}\n.edit-mode-container[_ngcontent-%COMP%]   .photo-reorder-item[_ngcontent-%COMP%]   ion-label[_ngcontent-%COMP%] {\n  color: var(--ion-text-color, #000);\n}\n.edit-mode-container[_ngcontent-%COMP%]   .photo-reorder-item[_ngcontent-%COMP%]   ion-label[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  font-size: 16px;\n  font-weight: 500;\n}\n.edit-mode-container[_ngcontent-%COMP%]   .photo-reorder-item[_ngcontent-%COMP%]   ion-reorder[_ngcontent-%COMP%] {\n  color: var(--ion-text-color, #000);\n}\n.edit-mode-container[_ngcontent-%COMP%]   .photo-reorder-item[_ngcontent-%COMP%]   ion-reorder[_ngcontent-%COMP%]   ion-icon[_ngcontent-%COMP%] {\n  font-size: 24px;\n}\n\n.story-viewer.edit-mode[_ngcontent-%COMP%]   .photo-container[_ngcontent-%COMP%] {\n  display: none;\n}"]
 });
 
 /***/ }),
