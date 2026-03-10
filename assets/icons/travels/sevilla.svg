@@ -1,0 +1,24 @@
+<svg
+  width="120"
+  height="120"
+  viewBox="0 0 120 120"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path d="M40 90H80" stroke="currentColor" stroke-width="3" />
+  <rect
+    x="45"
+    y="30"
+    width="30"
+    height="60"
+    rx="2"
+    stroke="currentColor"
+    stroke-width="3"
+  />
+  <path
+    d="M60 30V20"
+    stroke="currentColor"
+    stroke-width="3"
+    stroke-linecap="round"
+  />
+</svg>
