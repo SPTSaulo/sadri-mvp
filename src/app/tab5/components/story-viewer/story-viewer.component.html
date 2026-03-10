@@ -9,22 +9,12 @@
     <ion-icon name="close" slot="icon-only"></ion-icon>
   </ion-button>
 
-  <!-- Edit Mode Toggle Button -->
+  <!-- Menu Button -->
   <ion-button 
-    class="edit-button" 
-    fill="solid"
-    (click)="toggleEditMode(); $event.stopPropagation()">
-    <ion-icon [name]="isEditMode ? 'checkmark' : 'create'" slot="start"></ion-icon>
-    {{ isEditMode ? 'Guardar' : 'Editar' }}
-  </ion-button>
-
-  <!-- Add Photos Button -->
-  <ion-button 
-    class="add-photos-button" 
-    fill="solid"
-    (click)="openPhotoUploader(); $event.stopPropagation()">
-    <ion-icon name="add-circle" slot="start"></ion-icon>
-    Añadir
+    class="menu-button" 
+    fill="clear" 
+    (click)="showMenu(); $event.stopPropagation()">
+    <ion-icon name="ellipsis-vertical" slot="icon-only"></ion-icon>
   </ion-button>
 
   <!-- Progress Indicators for Each Photo (hidden in edit mode) -->
@@ -52,7 +42,7 @@
     <div class="empty-state" *ngIf="photos.length === 0">
       <ion-icon name="images-outline" class="empty-state-icon"></ion-icon>
       <p>No hay historias para este viaje todavía</p>
-      <p class="empty-state-hint">Toca el botón "Añadir" para agregar fotos</p>
+      <p class="empty-state-hint">Toca el botón de menú para agregar fotos</p>
     </div>
 
     <!-- Current Photo Display -->
@@ -64,17 +54,6 @@
       </ion-img>
     </div>
   </div>
-
-  <!-- Delete Photo Button (only in normal mode) -->
-  <ion-button 
-    *ngIf="!isEditMode && getCurrentPhoto()"
-    class="delete-photo-button" 
-    fill="solid" 
-    color="danger"
-    (click)="deletePhoto(getCurrentPhoto()!.id); $event.stopPropagation()">
-    <ion-icon name="trash" slot="start"></ion-icon>
-    Eliminar
-  </ion-button>
 
   <!-- Edit Mode: Photo Grid with Reordering -->
   <div class="edit-mode-container" *ngIf="isEditMode">

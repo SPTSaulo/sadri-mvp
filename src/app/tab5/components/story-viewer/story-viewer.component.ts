@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, OnDestroy, ViewChild, ViewContainerRef, ComponentRef } from '@angular/core';
-import { ModalController, AlertController } from '@ionic/angular';
+import { ModalController, AlertController, ActionSheetController } from '@ionic/angular';
 import { Subscription, interval } from 'rxjs';
 import { Story } from '../../models/story.model';
 import { Photo } from '../../models/photo.model';
@@ -39,7 +39,8 @@ export class StoryViewerComponent implements OnInit, OnDestroy {
     private storageService: StorageService,
     private errorToastService: ErrorToastService,
     private modalController: ModalController,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private actionSheetController: ActionSheetController
   ) {}
 
   ngOnInit() {
@@ -453,5 +454,47 @@ export class StoryViewerComponent implements OnInit, OnDestroy {
       // Resume auto-advance if user cancelled
       this.startAutoAdvance();
     }
+  }
+
+  /**
+   * Show action sheet menu with options
+   */
+  async showMenu(): Promise<void> {
+    const actionSheet = await this.actionSheetController.create({
+      header: 'Opciones',
+      buttons: [
+        {
+          text: this.isEditMode ? 'Guardar orden' : 'Reordenar fotos',
+          icon: this.isEditMode ? 'checkmark' : 'swap-vertical',
+          handler: () => {
+            this.toggleEditMode();
+          }
+        },
+        {
+          text: 'Añadir fotos',
+          icon: 'add-circle',
+          handler: () => {
+            this.openPhotoUploader();
+          }
+        },
+        {
+          text: 'Eliminar foto actual',
+          icon: 'trash',
+          role: 'destructive',
+          handler: () => {
+            if (this.getCurrentPhoto()) {
+              this.deletePhoto(this.getCurrentPhoto()!.id);
+            }
+          }
+        },
+        {
+          text: 'Cancelar',
+          icon: 'close',
+          role: 'cancel'
+        }
+      ]
+    });
+
+    await actionSheet.present();
   }
 }
