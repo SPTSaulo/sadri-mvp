@@ -1,0 +1,95 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Agregar Fotos</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon name="close" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="photo-uploader">
+  <!-- Add Photos Button -->
+  <ion-button 
+    expand="block" 
+    (click)="selectPhotos()" 
+    [disabled]="isUploading"
+    class="add-photos-button">
+    <ion-icon slot="start" name="images-outline"></ion-icon>
+    Add Photos
+  </ion-button>
+
+  <!-- Upload Progress Section -->
+  <div class="upload-progress-container" *ngIf="isUploading && uploadProgresses.length > 0">
+    <!-- Upload Summary -->
+    <div class="upload-summary">
+      <ion-text color="primary">
+        <h3>{{ getUploadSummary() }}</h3>
+      </ion-text>
+    </div>
+
+    <!-- Individual Photo Progress -->
+    <div class="progress-list">
+      <div 
+        class="progress-item" 
+        *ngFor="let progress of uploadProgresses"
+        [class.complete]="progress.status === 'complete'"
+        [class.error]="progress.status === 'error'">
+        
+        <div class="progress-info">
+          <ion-text>
+            <p class="photo-name">{{ progress.fileName }}</p>
+          </ion-text>
+          
+          <ion-text [color]="progress.status === 'error' ? 'danger' : 'medium'">
+            <p class="progress-status">
+              <span *ngIf="progress.status === 'pending'">Pending...</span>
+              <span *ngIf="progress.status === 'uploading'">{{ progress.progress }}%</span>
+              <span *ngIf="progress.status === 'complete'">
+                <ion-icon name="checkmark-circle" color="success"></ion-icon>
+                Complete
+              </span>
+              <span *ngIf="progress.status === 'error'">
+                <ion-icon name="close-circle" color="danger"></ion-icon>
+                Failed
+              </span>
+            </p>
+          </ion-text>
+        </div>
+
+        <!-- Progress Bar -->
+        <ion-progress-bar 
+          *ngIf="progress.status === 'uploading' || progress.status === 'pending'"
+          [value]="progress.progress / 100"
+          color="primary">
+        </ion-progress-bar>
+      </div>
+    </div>
+  </div>
+
+  <!-- Error Message with Retry -->
+  <ion-card *ngIf="uploadError" color="danger" class="error-card">
+    <ion-card-content>
+      <div class="error-content">
+        <ion-icon name="alert-circle-outline" class="error-icon"></ion-icon>
+        <div class="error-text">
+          <ion-text color="light">
+            <p>{{ uploadError }}</p>
+          </ion-text>
+        </div>
+      </div>
+      <ion-button 
+        expand="block" 
+        fill="outline" 
+        color="light"
+        (click)="retryUpload()"
+        class="retry-button">
+        <ion-icon slot="start" name="refresh-outline"></ion-icon>
+        Retry Upload
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</div>
+</ion-content>

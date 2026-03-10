@@ -1,0 +1,75 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Historias</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- Connection status indicator -->
+  <app-connection-status></app-connection-status>
+
+  <!-- Pull-to-refresh -->
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <!-- Loading spinner -->
+  <div *ngIf="isLoading" class="loading-container">
+    <ion-spinner></ion-spinner>
+  </div>
+
+  <!-- Empty state message -->
+  <div *ngIf="!isLoading && stories.length === 0" class="empty-state">
+    <ion-icon name="images-outline" class="empty-state-icon"></ion-icon>
+    <p>No hay historias todavía</p>
+    <p class="empty-state-hint">Toca el botón + para crear tu primera historia de viaje</p>
+  </div>
+
+  <!-- Stories grid -->
+  <ion-grid *ngIf="!isLoading && stories.length > 0">
+    <ion-row>
+      <ion-col 
+        *ngFor="let story of displayedStories" 
+        size="6"
+      >
+        <ion-card>
+          <div (click)="openStory(story.id)">
+            <ion-img 
+              [src]="story.coverUrl" 
+              [alt]="story.title"
+              class="story-cover"
+              loading="lazy"
+            ></ion-img>
+            <ion-card-content>
+              <div class="card-content">
+                <ion-text>{{ story.title }}</ion-text>
+                <div style="display: flex; align-items: center; gap: 5px">
+                  <ion-icon name="images-outline"></ion-icon>
+                  <span>{{ story.photoCount }}</span>
+                </div>
+              </div>
+            </ion-card-content>
+          </div>
+          <ion-button 
+            fill="clear" 
+            class="story-menu-button"
+            (click)="showStoryMenu(story.id); $event.stopPropagation()">
+            <ion-icon slot="icon-only" name="ellipsis-vertical"></ion-icon>
+          </ion-button>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Floating action button -->
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button>
+      <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button (click)="createStory()">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>

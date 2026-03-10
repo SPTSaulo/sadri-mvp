@@ -1,0 +1,9 @@
+<ion-button
+  [color]="color"
+  [disabled]="disabled || loading"
+  [size]="size"
+  (click)="onRetry()"
+>
+  <ion-icon [name]="loading ? 'hourglass-outline' : icon" slot="start"></ion-icon>
+  {{ loading ? 'Reintentando...' : text }}
+</ion-button>

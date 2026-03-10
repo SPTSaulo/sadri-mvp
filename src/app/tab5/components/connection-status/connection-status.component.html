@@ -1,0 +1,21 @@
+<ion-header *ngIf="showBanner" class="connection-banner">
+  <ion-toolbar [color]="isOnline ? 'success' : 'danger'">
+    <ion-title>
+      <ion-icon [name]="isOnline ? 'cloud-done-outline' : 'cloud-offline-outline'"></ion-icon>
+      {{ isOnline ? 'Conexión restaurada' : 'Sin conexión a internet' }}
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissBanner()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<!-- Firebase Sync Indicator -->
+<div class="sync-indicator" *ngIf="isSyncing && isOnline">
+  <ion-spinner name="crescent" color="primary"></ion-spinner>
+  <ion-text color="primary">
+    <small>Sincronizando con Firebase...</small>
+  </ion-text>
+</div>

@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="cancel()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Nueva Historia</ion-title>
+    <ion-buttons slot="end">
+      <ion-button 
+        (click)="create()" 
+        [disabled]="!isFormValid()"
+        [strong]="true"
+      >
+        Crear
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Title input field -->
+  <ion-item>
+    <ion-label position="stacked">Título *</ion-label>
+    <ion-input
+      [(ngModel)]="title"
+      placeholder="Ej: Viaje a París 2024"
+      maxlength="100"
+      required
+    ></ion-input>
+  </ion-item>
+
+  <!-- Cover image selection -->
+  <div class="cover-image-section">
+    <ion-label class="section-label">Imagen de portada *</ion-label>
+    
+    <!-- Cover image preview -->
+    <div class="cover-preview-container" *ngIf="coverImageUrl">
+      <img [src]="coverImageUrl" alt="Vista previa de portada" class="cover-preview" loading="lazy" />
+      <ion-button 
+        fill="clear" 
+        class="change-image-button"
+        (click)="selectCoverImage()"
+        [disabled]="isSelectingImage"
+      >
+        <ion-icon slot="start" name="images-outline"></ion-icon>
+        Cambiar imagen
+      </ion-button>
+    </div>
+
+    <!-- Select image button (shown when no image selected) -->
+    <ion-button 
+      *ngIf="!coverImageUrl"
+      expand="block" 
+      (click)="selectCoverImage()"
+      [disabled]="isSelectingImage"
+      class="select-image-button"
+    >
+      <ion-icon slot="start" name="images-outline"></ion-icon>
+      {{ isSelectingImage ? 'Seleccionando...' : 'Seleccionar imagen' }}
+    </ion-button>
+  </div>
+
+  <!-- Form validation hint -->
+  <ion-note class="validation-note">
+    * Campos requeridos
+  </ion-note>
+</ion-content>

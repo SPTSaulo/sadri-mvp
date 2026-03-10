@@ -1,0 +1,30 @@
+<ion-card 
+  class="story-card" 
+  (click)="onCardTap()"
+  (press)="onLongPress()"
+  button>
+  <div class="story-card-content">
+    <!-- Loading placeholder during image load -->
+    <div class="image-loading-placeholder" *ngIf="isImageLoading">
+      <ion-spinner name="crescent"></ion-spinner>
+    </div>
+    
+    <ion-img 
+      [src]="story.coverUrl" 
+      [alt]="story.title"
+      class="cover-image"
+      loading="lazy"
+      (ionImgDidLoad)="onImageLoad()"
+      (ionError)="onImageError()">
+    </ion-img>
+    
+    <div class="story-overlay">
+      <h3 class="story-title">{{ story.title }}</h3>
+    </div>
+    
+    <ion-badge class="photo-count-badge" color="dark">
+      <ion-icon name="images-outline"></ion-icon>
+      {{ story.photoCount }}
+    </ion-badge>
+  </div>
+</ion-card>

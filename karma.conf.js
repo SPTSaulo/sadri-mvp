@@ -18,6 +18,7 @@ module.exports = function (config) {
         // the possible options are listed at https://jasmine.github.io/api/edge/Configuration.html
         // for example, you can disable the random execution with `random: false`
         // or set a specific seed with `seed: 4321`
+        timeoutInterval: 120000 // 2 minutes for property-based tests
       },
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
@@ -33,6 +34,7 @@ module.exports = function (config) {
       ]
     },
     reporters: ['progress', 'kjhtml'],
+    browserNoActivityTimeout: 120000, // 2 minutes for property-based tests
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,

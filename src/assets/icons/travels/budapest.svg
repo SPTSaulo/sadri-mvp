@@ -1,0 +1,27 @@
+<svg
+  width="120"
+  height="120"
+  viewBox="0 0 120 120"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M20 80H100"
+    stroke="currentColor"
+    stroke-width="3"
+    stroke-linecap="round"
+  />
+  <path
+    d="M30 80V55L60 35L90 55V80"
+    stroke="currentColor"
+    stroke-width="3"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M60 35V25"
+    stroke="currentColor"
+    stroke-width="3"
+    stroke-linecap="round"
+  />
+  <path d="M45 80V60M75 80V60" stroke="currentColor" stroke-width="3" />
+</svg>

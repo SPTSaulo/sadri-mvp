@@ -1,0 +1,69 @@
+.connection-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  animation: slideDown 0.3s ease-out;
+
+  ion-toolbar {
+    --min-height: 48px;
+  }
+
+  ion-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    gap: 8px;
+
+    ion-icon {
+      font-size: 20px;
+    }
+  }
+}
+
+.sync-indicator {
+  position: fixed;
+  top: 56px;
+  right: 16px;
+  z-index: 9998;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--ion-color-light);
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.3s ease-out;
+
+  ion-spinner {
+    width: 16px;
+    height: 16px;
+  }
+
+  ion-text {
+    font-size: 12px;
+    font-weight: 500;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

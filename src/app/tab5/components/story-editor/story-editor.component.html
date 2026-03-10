@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Editar Historia</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cancel()">
+        <ion-icon name="close" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Loading State -->
+  <div *ngIf="isLoading" class="loading-container">
+    <ion-spinner name="crescent"></ion-spinner>
+    <p>Cargando historia...</p>
+  </div>
+
+  <!-- Edit Form -->
+  <div *ngIf="!isLoading && story" class="edit-form">
+    <!-- Cover Image Preview -->
+    <div class="cover-preview">
+      <ion-img 
+        *ngIf="getDisplayCoverUrl()" 
+        [src]="getDisplayCoverUrl()"
+        alt="Portada de la historia"
+        loading="lazy">
+      </ion-img>
+      <div *ngIf="!getDisplayCoverUrl()" class="no-cover">
+        <ion-icon name="image-outline"></ion-icon>
+        <p>Sin portada</p>
+      </div>
+    </div>
+
+    <!-- Change Cover Button -->
+    <ion-button 
+      expand="block" 
+      fill="outline" 
+      (click)="changeCover()"
+      [disabled]="isSelectingImage || isSaving">
+      <ion-icon name="camera" slot="start"></ion-icon>
+      {{ isSelectingImage ? 'Seleccionando...' : 'Cambiar Portada' }}
+    </ion-button>
+
+    <!-- Title Input -->
+    <ion-item class="title-input">
+      <ion-label position="stacked">Título de la Historia</ion-label>
+      <ion-input
+        type="text"
+        [(ngModel)]="title"
+        (ionInput)="updateTitle($any($event.target).value)"
+        placeholder="Ingresa un título"
+        [disabled]="isSaving"
+        maxlength="100">
+      </ion-input>
+    </ion-item>
+
+    <!-- Character Count -->
+    <div class="character-count">
+      {{ title.length }} / 100 caracteres
+    </div>
+
+    <!-- Save Button -->
+    <ion-button 
+      expand="block" 
+      (click)="saveChanges()"
+      [disabled]="!isFormValid() || !hasChanges() || isSaving">
+      <ion-icon name="save" slot="start"></ion-icon>
+      {{ isSaving ? 'Guardando...' : 'Guardar Cambios' }}
+    </ion-button>
+
+    <!-- Cancel Button -->
+    <ion-button 
+      expand="block" 
+      fill="clear" 
+      (click)="cancel()"
+      [disabled]="isSaving">
+      Cancelar
+    </ion-button>
+  </div>
+</ion-content>
