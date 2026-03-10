@@ -14,7 +14,6 @@ import { Story } from '../models/story.model';
 })
 export class StoryService {
   private firestore = inject(Firestore);
-  private storiesCollection = collection(this.firestore, 'stories');
   
   // Sync status observable for synchronization indicator
   private syncStatusSubject = new BehaviorSubject<boolean>(false);
@@ -28,8 +27,10 @@ export class StoryService {
   getAll(): Observable<Story[]> {
     this.syncStatusSubject.next(true);
     
+    const storiesCollection = collection(this.firestore, 'stories');
+    
     // Temporarily remove orderBy to test connection
-    return collectionData(this.storiesCollection, { idField: 'id' }).pipe(
+    return collectionData(storiesCollection, { idField: 'id' }).pipe(
       map((stories: any[]) => {
         console.log('Firestore stories received:', stories);
         // Sort in memory instead
@@ -77,6 +78,8 @@ export class StoryService {
    */
   async create(story: Partial<Story>): Promise<string> {
     try {
+      const storiesCollection = collection(this.firestore, 'stories');
+      
       const newStory = {
         title: story.title || '',
         coverUrl: story.coverUrl || '',
@@ -87,7 +90,7 @@ export class StoryService {
         photos: story.photos || []
       };
       
-      const docRef = await addDoc(this.storiesCollection, newStory);
+      const docRef = await addDoc(storiesCollection, newStory);
       return docRef.id;
     } catch (error) {
       console.error('Error creating story:', error);
