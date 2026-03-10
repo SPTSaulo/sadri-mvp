@@ -1088,6 +1088,7 @@ function ConnectionStatusComponent_div_1_Template(rf, ctx) {
 class ConnectionStatusComponent {
   constructor() {
     this.storyService = (0,_angular_core__WEBPACK_IMPORTED_MODULE_1__.inject)(_services_story_service__WEBPACK_IMPORTED_MODULE_0__.StoryService);
+    this.cdr = (0,_angular_core__WEBPACK_IMPORTED_MODULE_1__.inject)(_angular_core__WEBPACK_IMPORTED_MODULE_1__.ChangeDetectorRef);
     this.isOnline = true;
     this.showBanner = false;
     this.isSyncing = false;
@@ -1115,13 +1116,16 @@ class ConnectionStatusComponent {
     window.addEventListener('online', this.handleOnline);
     window.addEventListener('offline', this.handleOffline);
     // Subscribe to sync status from StoryService
-    this.storyService.syncStatus$.subscribe(syncing => {
+    this.syncSubscription = this.storyService.syncStatus$.subscribe(syncing => {
       this.isSyncing = syncing;
+      this.cdr.detectChanges();
     });
   }
   ngOnDestroy() {
+    var _this$syncSubscriptio;
     window.removeEventListener('online', this.handleOnline);
     window.removeEventListener('offline', this.handleOffline);
+    (_this$syncSubscriptio = this.syncSubscription) === null || _this$syncSubscriptio === void 0 || _this$syncSubscriptio.unsubscribe();
   }
   dismissBanner() {
     this.showBanner = false;
@@ -4147,18 +4151,12 @@ class StoryService {
   getAll() {
     this.syncStatusSubject.next(true);
     const storiesCollection = (0,_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__.collection)(this.firestore, 'stories');
-    // Temporarily remove orderBy to test connection
     return (0,_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__.collectionData)(storiesCollection, {
       idField: 'id'
     }).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_4__.map)(stories => {
-      console.log('Firestore stories received:', stories);
-      // Sort in memory instead
       const mapped = stories.map(story => this.convertFirestoreToStory(story));
       return mapped.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
-    }), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_5__.tap)(() => {
-      console.log('Sync complete');
-      this.syncStatusSubject.next(false);
-    }), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.catchError)(error => {
+    }), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_5__.tap)(() => this.syncStatusSubject.next(false)), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.catchError)(error => {
       console.error('Firestore error:', error);
       this.syncStatusSubject.next(false);
       return (0,rxjs__WEBPACK_IMPORTED_MODULE_7__.throwError)(() => error);
