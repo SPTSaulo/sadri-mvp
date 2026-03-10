@@ -4147,10 +4147,19 @@ class StoryService {
    */
   getAll() {
     this.syncStatusSubject.next(true);
-    const q = (0,_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__.query)(this.storiesCollection, (0,_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__.orderBy)('createdAt', 'desc'));
-    return (0,_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__.collectionData)(q, {
+    // Temporarily remove orderBy to test connection
+    return (0,_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__.collectionData)(this.storiesCollection, {
       idField: 'id'
-    }).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_4__.map)(stories => stories.map(story => this.convertFirestoreToStory(story))), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_5__.tap)(() => this.syncStatusSubject.next(false)), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.catchError)(error => {
+    }).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_4__.map)(stories => {
+      console.log('Firestore stories received:', stories);
+      // Sort in memory instead
+      const mapped = stories.map(story => this.convertFirestoreToStory(story));
+      return mapped.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+    }), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_5__.tap)(() => {
+      console.log('Sync complete');
+      this.syncStatusSubject.next(false);
+    }), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.catchError)(error => {
+      console.error('Firestore error:', error);
       this.syncStatusSubject.next(false);
       return (0,rxjs__WEBPACK_IMPORTED_MODULE_7__.throwError)(() => error);
     }));
