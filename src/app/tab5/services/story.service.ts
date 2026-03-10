@@ -1,7 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { Observable, BehaviorSubject, from, throwError } from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
-import { Firestore, collection, collectionData, doc, docData, addDoc, updateDoc, deleteDoc, query, orderBy, Timestamp } from '@angular/fire/firestore';
+import { Firestore, collection, collectionData, doc, docData, addDoc, updateDoc, deleteDoc, Timestamp } from '@angular/fire/firestore';
 import { Story } from '../models/story.model';
 
 /**
@@ -28,12 +28,22 @@ export class StoryService {
   getAll(): Observable<Story[]> {
     this.syncStatusSubject.next(true);
     
-    const q = query(this.storiesCollection, orderBy('createdAt', 'desc'));
-    
-    return collectionData(q, { idField: 'id' }).pipe(
-      map((stories: any[]) => stories.map(story => this.convertFirestoreToStory(story))),
-      tap(() => this.syncStatusSubject.next(false)),
+    // Temporarily remove orderBy to test connection
+    return collectionData(this.storiesCollection, { idField: 'id' }).pipe(
+      map((stories: any[]) => {
+        console.log('Firestore stories received:', stories);
+        // Sort in memory instead
+        const mapped = stories.map(story => this.convertFirestoreToStory(story));
+        return mapped.sort((a, b) => 
+          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+        );
+      }),
+      tap(() => {
+        console.log('Sync complete');
+        this.syncStatusSubject.next(false);
+      }),
       catchError(error => {
+        console.error('Firestore error:', error);
         this.syncStatusSubject.next(false);
         return throwError(() => error);
       })
