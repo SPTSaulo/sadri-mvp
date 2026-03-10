@@ -148,7 +148,7 @@
 // Edit Mode Toggle Button
 .edit-button {
   position: absolute;
-  bottom: 20px;
+  top: 100px;
   left: 20px;
   z-index: 10001;
   color: var(--ion-text-color, #000);
@@ -170,7 +170,7 @@
 // Add Photos Button
 .add-photos-button {
   position: absolute;
-  bottom: 20px;
+  top: 100px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10001;
@@ -193,7 +193,7 @@
 // Delete Photo Button
 .delete-photo-button {
   position: absolute;
-  bottom: 20px;
+  top: 100px;
   right: 20px;
   z-index: 10001;
   --background: rgba(220, 53, 69, 0.7);
